@@ -17,8 +17,6 @@ $router->get('/', function () use ($router) {
 
 });
 
-$router->get('/user/{name}', ['as' => 'example-hello', 'uses' => 'ExampleController@index']);
-
 $router->group(['prefix' => 'api'], function () use ($router) {
     //Singers
     $router->get('singers', ['uses' => 'SingerController@index']);
@@ -26,4 +24,14 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('singers', ['uses' => 'SingerController@store']);
     $router->put('singers/{id}', ['uses' => 'SingerController@update']);
     $router->delete('singers/{id}', ['uses' => 'SingerController@destroy']);
+    
+    //Songs
+    $router->get('songs', ['uses' => 'SongController@index']);
+    $router->get('songs/{id}', ['uses' => 'SongController@show']);
+    $router->get('singers/{singer_id}/songs', ['uses' => 'SongController@showSongsBySinger']);
+    $router->post('singers/{singer_id}/songs', ['uses' => 'SongController@store']);
+    $router->put('singers/{singer_id}/songs/{song_id}', ['uses' => 'SongController@update']);
+    $router->delete('singers/{singer_id}/songs/{song_id}', ['uses' => 'SongController@destroy']);
+
+
 });

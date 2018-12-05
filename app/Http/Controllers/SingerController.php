@@ -21,7 +21,7 @@ class SingerController extends Controller
     }
 
     /**
-     * show return a singer by id
+     * show a singer by id
      *
      * @param integer $id
      * @return string

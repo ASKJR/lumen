@@ -22,4 +22,14 @@ class Song extends Model
      * @var array
      */
     protected $hidden = [];
+
+    public function singer()
+    {
+        return $this->belongsTo('App\Singer');
+    }
+
+    public function scopeBySinger($query, $singer_id)
+    {
+        return $query->where('singer_id', $singer_id);
+    }
 }

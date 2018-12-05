@@ -22,4 +22,9 @@ class Singer extends Model
      * @var array
      */
     protected $hidden = [];
+
+    public function songs()
+    {
+        return $this->hasMany('App\Song');
+    }
 }
